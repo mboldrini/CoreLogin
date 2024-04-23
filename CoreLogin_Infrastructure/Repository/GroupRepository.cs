@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 using System.Text.Json;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace CoreLogin_Infrastructure.Repository
 {
@@ -87,7 +88,7 @@ namespace CoreLogin_Infrastructure.Repository
     /// </summary>
     /// <param name="groupId">ID</param>
     /// <returns></returns>
-    public async Task<ActionResult<Group>> GetGroupByIdAsync(int id)
+    public async Task<ActionResult<GroupResultDTO>> GetGroupByIdAsync(int id)
     {
       var groupExist = await _dbContext.Groups
                     .Include(g => g.GroupPermissions)
@@ -108,8 +109,8 @@ namespace CoreLogin_Infrastructure.Repository
     /// Get a group by name
     /// </summary>
     /// <param name="name">Name</param>
-    /// <returns></returns>
-    public async Task<ActionResult<Group>> GetGroupByNameAndAllPermissionsAsync(string name)
+    /// <returns>Group</returns>
+    public async Task<ActionResult<GroupResultDTO>> GetGroupByNameAndAllPermissionsAsync(string name)
     {
       var groupExist = await _dbContext.Groups
                     .Include(g => g.GroupPermissions)
@@ -130,36 +131,94 @@ namespace CoreLogin_Infrastructure.Repository
     /// <summary>
     /// Return a list of groups
     /// </summary>
-    /// <returns></returns>
-    public async Task<ActionResult<IEnumerable<Group>>> GetGroupsAsync()
+    /// <returns>IEnumerable - GroupResultDTO</returns>
+    public async Task<ActionResult<IEnumerable<GroupResultDTO>>> GetAllGroupsAsync()
     {
-      var listOfGroups = await _dbContext.Groups.ToListAsync();
-      return new OkObjectResult(listOfGroups);
+      // get all groups with related permissions
+      var groups = await _dbContext.Groups
+                    .Include(g => g.GroupPermissions)
+                        .ThenInclude(gp => gp.Permission)
+                    .ToListAsync();
+     
+      // convert list of groupts to groupDTO
+      var groupsDTO = new List<GroupResultDTO>();
+      foreach (var group in groups)
+      {
+        var groupDTO = GroupConverter.GroupResult(group);
+        groupsDTO.Add(groupDTO);
+      }
+
+      return new OkObjectResult(groupsDTO);
+
     }
 
     /// <summary>
     /// Update a group
     /// </summary>
     /// <param name="group"></param>
-    /// <returns></returns>
-    public async Task<ActionResult<Group>> UpdateGroupAsync(Group group)
+    /// <returns>ActionResult - GroupResultDTO</returns>
+    public async Task<ActionResult<GroupResultDTO>> UpdateGroupAsync(int id, GroupRequestDTO group)
     {
-      var groupExist = await _dbContext.Groups.FirstOrDefaultAsync(g => g.Id == group.Id);
+      var groupExist = await _dbContext.Groups.FirstOrDefaultAsync(g => g.Id == id);
       if (groupExist == null)
       {
         return new OkObjectResult(groupExist);
       }
 
+      var groupPermissions = await _dbContext.GroupPermissions.Where(gp => gp.GroupId == groupExist.Id).ToListAsync();
+      _dbContext.GroupPermissions.RemoveRange(groupPermissions);
+
       groupExist.Name = group.Name;
       groupExist.Description = group.Description;
       groupExist.Active = group.Active;
 
-      _dbContext.Groups.Update(groupExist);
+      foreach (var permission in group.Permissions)
+      {
+        var permissionOperation = (EPermissionOperation)Enum.Parse(typeof(EPermissionOperation), permission.Operation);
+        var permissionType = (EPermissionType)Enum.Parse(typeof(EPermissionType), permission.Type);
+
+        var existingPermission = await _dbContext.Permissions.FirstOrDefaultAsync(p => p.Operation == permissionOperation && p.Type == permissionType);
+
+        if (existingPermission != null)
+        {
+          var groupPermission = new GroupPermission
+          {
+            GroupId = groupExist.Id,
+            Group = groupExist,
+            PermissionId = existingPermission.Id,
+            Permission = existingPermission
+          };
+
+          await _dbContext.GroupPermissions.AddAsync(groupPermission);
+        }
+      }
 
       await _dbContext.SaveChangesAsync();
 
-      return new OkObjectResult(groupExist);
+      var groupDTO = GroupConverter.GroupResult(groupExist);
+      return new OkObjectResult(groupDTO);
 
     }
+
+    /// <summary>
+    /// Delete a group
+    /// </summary>
+    /// <param name="id">ID of the group</param>
+    /// <returns>ActionResult</returns>
+    public async Task<ActionResult> DeleteGroup(int id)
+    {
+      var groupExist = await _dbContext.Groups.FirstOrDefaultAsync(g => g.Id == id);
+      if (groupExist == null)
+      {
+        return new NotFoundResult();
+      }
+
+      // set group active to false and save
+      groupExist.Active = false;
+      await _dbContext.SaveChangesAsync();  
+
+      return new OkResult();
+    }
+
   }
 }

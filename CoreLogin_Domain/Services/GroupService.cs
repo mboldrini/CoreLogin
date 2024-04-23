@@ -24,9 +24,9 @@ namespace CoreLogin_Application.Services
       return await _groupRepository.GetGroupByNameAndAllPermissionsAsync(groupName);
     }
 
-    public async Task<ActionResult<IEnumerable<Group>>> GetGroupsAsync()
+    public async Task<ActionResult<IEnumerable<GroupResultDTO>>> GetGroupsAsync()
     {
-      return await _groupRepository.GetGroupsAsync();
+      return await _groupRepository.GetAllGroupsAsync();
     }
 
     public async Task<ActionResult<GroupResultDTO>> CreateGroupAsync(GroupRequestDTO group)
@@ -34,9 +34,9 @@ namespace CoreLogin_Application.Services
       return await _groupRepository.CreateGroupAsync(group);
     }
 
-    public async Task<ActionResult<Group>> UpdateGroupAsync(Group group)
+    public async Task<ActionResult<GroupResultDTO>> UpdateGroupAsync(int id, GroupRequestDTO group)
     {
-      return await _groupRepository.UpdateGroupAsync(group);
+      return await _groupRepository.UpdateGroupAsync(id, group);
     }
 
   }

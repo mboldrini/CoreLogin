@@ -28,7 +28,7 @@ namespace CoreLogin_Infrastructure.Repository
     {
       var permissionConverted = PermissionConverter.PermissionRequest(permission);
     
-      var permissionExists = await _dbContext.Permissions.FirstOrDefaultAsync(p => p.Operation == permissionConverted.Operation);
+      var permissionExists = await _dbContext.Permissions.FirstOrDefaultAsync(p => p.Operation == permissionConverted.Operation && p.Type == permissionConverted.Type);
 
       if (permissionExists != null)
       {

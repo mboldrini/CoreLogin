@@ -25,8 +25,18 @@ namespace CoreLogin_Presentation.Controllers
       return newGroup;
     }
 
+
     [HttpGet]
-    [Route("get/id/{id}")]
+    [Route("all")]
+    public async Task<ActionResult<IEnumerable<GroupResultDTO>>> GetAllGroupsAsync()
+    {
+      var groups = await _groupRepository.GetAllGroupsAsync();
+
+      return groups;
+    }
+
+    [HttpGet]
+    [Route("id/{id}")]
     public async Task<ActionResult<Group>> GetGroupByIdAsync(int id)
     {
       var group = await _groupRepository.GetGroupByIdAsync(id);
@@ -35,7 +45,7 @@ namespace CoreLogin_Presentation.Controllers
     }
 
     [HttpGet]
-    [Route("get/name/{name}")]
+    [Route("name/{name}")]
     public async Task<ActionResult<Group>> GetGroupByNameAndAllPermissionsAsync(string name)
     {
       var group = await _groupRepository.GetGroupByNameAndAllPermissionsAsync(name);
@@ -44,12 +54,21 @@ namespace CoreLogin_Presentation.Controllers
     }
 
     [HttpPost]
-    [Route("update")]
-    public async Task<ActionResult<Group>> UpdateGroupAsync([FromBody] Group group)
+    [Route("update/{id:int}")]
+    public async Task<ActionResult<GroupResultDTO>> UpdateGroupAsync([FromRoute] int id, [FromBody] GroupRequestDTO group)
     {
-      var updatedGroup = await _groupRepository.UpdateGroupAsync(group);
+      var updatedGroup = await _groupRepository.UpdateGroupAsync(id, group);
 
       return updatedGroup;
+    }
+
+    [HttpDelete]
+    [Route("delete/{id:int}")]
+    public async Task<ActionResult<GroupResultDTO>> DeleteGroup([FromRoute] int id)
+    {
+      var deletedGroup = await _groupRepository.DeleteGroup(id);
+
+      return deletedGroup;
     }
 
   }
