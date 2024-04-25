@@ -5,14 +5,20 @@
 *.suo
 *.user
 *.sln.docstates
+*.v2
 
 # Build results
-
 [Dd]ebug/
 [Rr]elease/
 x64/
 [Bb]in/
 [Oo]bj/
+.csproj.user
+*.swp
+
+*.vs
+*.bin
+
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
@@ -35,7 +41,6 @@ x64/
 *.tlh
 *.tmp
 *.tmp_proj
-*.log
 *.vspscc
 *.vssscc
 .builds
@@ -67,8 +72,6 @@ _ReSharper*/
 
 # Click-Once directory
 publish/
-
-# Publish Web Output
 *.Publish.xml
 *.pubxml
 *.azurePubxml
@@ -96,7 +99,6 @@ ClientBin/
 *~
 *.dbmdl
 *.[Pp]ublish.xml
-
 *.publishsettings
 
 # RIA/Silverlight projects

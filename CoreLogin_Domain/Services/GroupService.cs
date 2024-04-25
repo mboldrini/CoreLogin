@@ -14,12 +14,12 @@ namespace CoreLogin_Application.Services
       _groupRepository = groupRepository;
     }
 
-    public async Task<ActionResult<Group>> GetGroupByIdAsync(int groupId)
+    public async Task<ActionResult<GroupResultDTO>> GetGroupByIdAsync(int groupId)
     {
       return await _groupRepository.GetGroupByIdAsync(groupId);
     }
 
-    public async Task<ActionResult<Group>> GetGroupByNameAndAllPermissionsAsync(string groupName)
+    public async Task<ActionResult<GroupResultDTO>> GetGroupByNameAndAllPermissionsAsync(string groupName)
     {
       return await _groupRepository.GetGroupByNameAndAllPermissionsAsync(groupName);
     }

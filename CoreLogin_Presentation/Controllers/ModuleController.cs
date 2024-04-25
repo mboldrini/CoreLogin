@@ -1,4 +1,5 @@
-﻿using CoreLogin_Domain.Entities;
+﻿using CoreLogin_Domain.Converters.DTO;
+using CoreLogin_Domain.Entities;
 using CoreLogin_Domain.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -18,7 +19,7 @@ namespace CoreLogin_Presentation.Controllers
     [HttpPost]
     [Route("create")]
     [AllowAnonymous]
-    public async Task<IActionResult> AddModuleAsync([FromBody] Module module)
+    public async Task<ActionResult<ModuleResultDTO>> AddModuleAsync([FromBody] ModuleRequestDTO module)
     {
       var newModule = await _moduleRepository.AddModuleAsync(module);
       if (newModule == null)
@@ -32,14 +33,11 @@ namespace CoreLogin_Presentation.Controllers
     [HttpGet]
     [Route("{name}")]
     [AllowAnonymous]
-    public async Task<IActionResult> GetModuleByNameAsync([FromRoute] string name)
+    public async Task<ActionResult<ModuleResultDTO>> GetModuleByNameAsync([FromRoute] string name)
     {
       var module = await _moduleRepository.GetModuleByNameAsync(name);
-      if (module == null)
-      {
-        return NotFound("Module not found");
-      }
-      return Ok(module);
+     
+      return module;
     }
 
     [HttpGet]

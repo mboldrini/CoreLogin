@@ -1,4 +1,5 @@
-﻿using CoreLogin_Domain.Entities;
+﻿using CoreLogin_Domain.Converters.DTO;
+using CoreLogin_Domain.Entities;
 using CoreLogin_Domain.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,7 +24,7 @@ namespace CoreLogin_Application.Services
       return await _moduleRepository.GetModuleByIdAsync(id);
     }
 
-    public async Task AddModuleAsync(Module module)
+    public async Task AddModuleAsync(ModuleRequestDTO module)
     {
       await _moduleRepository.AddModuleAsync(module);
     }

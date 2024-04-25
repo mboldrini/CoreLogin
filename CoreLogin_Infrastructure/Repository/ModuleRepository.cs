@@ -1,4 +1,6 @@
-﻿using CoreLogin_Domain.Entities;
+﻿using CoreLogin_Domain.Converters;
+using CoreLogin_Domain.Converters.DTO;
+using CoreLogin_Domain.Entities;
 using CoreLogin_Domain.Repositories;
 using CoreLogin_Infrastructure.Data;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -21,7 +23,7 @@ namespace CoreLogin_Infrastructure.Repository
     /// </summary>
     /// <param name="module">Module object</param>
     /// <returns>Module</returns>
-    public async Task<ActionResult<Module>> AddModuleAsync(Module module)
+    public async Task<ActionResult<ModuleResultDTO>> AddModuleAsync(ModuleRequestDTO module)
     {
       var moduleExists = await _dbContext.Modules.FirstOrDefaultAsync(m => m.Name == module.Name);
       if (moduleExists != null)
@@ -29,10 +31,14 @@ namespace CoreLogin_Infrastructure.Repository
         return new OkObjectResult(moduleExists);
       }
 
-      await _dbContext.Modules.AddAsync(module);
+      var moduleRequestConverted = ModuleConverter.ModuleRequest(module);
+
+      await _dbContext.Modules.AddAsync(moduleRequestConverted);
       await _dbContext.SaveChangesAsync();
 
-      return new OkObjectResult(module);
+      var moduleConverted = ModuleConverter.ModuleResult(moduleRequestConverted);
+
+      return new OkObjectResult(moduleConverted);
     }
 
     /// <summary>
@@ -40,15 +46,18 @@ namespace CoreLogin_Infrastructure.Repository
     /// </summary>
     /// <param name="name">Name of the module</param>
     /// <returns>Module</returns>
-    public async Task<ActionResult<Module>> GetModuleByNameAsync(string name)
+    public async Task<ActionResult<ModuleResultDTO>> GetModuleByNameAsync(string name)
     {
-      var moduleExists = await _dbContext.Modules.FirstOrDefaultAsync(m => m.Name == name);
-      if(moduleExists == null)
+      // return module with all groups related
+      var module = await _dbContext.Modules.Include(m => m.GroupModules).ThenInclude(gm => gm.Group).FirstOrDefaultAsync(m => m.Name == name);
+      if (module == null)
       {
         return new NotFoundObjectResult("Module not found");
       }
 
-      return new OkObjectResult(moduleExists);
+      var moduleConverted = ModuleConverter.ModuleResult(module);
+      return new OkObjectResult(moduleConverted);
+
     }
 
     /// <summary>

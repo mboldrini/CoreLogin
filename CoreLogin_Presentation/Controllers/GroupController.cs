@@ -37,7 +37,7 @@ namespace CoreLogin_Presentation.Controllers
 
     [HttpGet]
     [Route("id/{id}")]
-    public async Task<ActionResult<Group>> GetGroupByIdAsync(int id)
+    public async Task<ActionResult<GroupResultDTO>> GetGroupByIdAsync(int id)
     {
       var group = await _groupRepository.GetGroupByIdAsync(id);
 
@@ -46,7 +46,7 @@ namespace CoreLogin_Presentation.Controllers
 
     [HttpGet]
     [Route("name/{name}")]
-    public async Task<ActionResult<Group>> GetGroupByNameAndAllPermissionsAsync(string name)
+    public async Task<ActionResult<GroupResultDTO>> GetGroupByNameAndAllPermissionsAsync(string name)
     {
       var group = await _groupRepository.GetGroupByNameAndAllPermissionsAsync(name);
 
