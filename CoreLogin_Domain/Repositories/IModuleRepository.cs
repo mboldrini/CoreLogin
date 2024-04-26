@@ -8,9 +8,9 @@ namespace CoreLogin_Domain.Repositories
   {
     Task<ActionResult<ModuleResultDTO>> AddModuleAsync(ModuleRequestDTO module);
     Task<ActionResult<ModuleResultDTO>> GetModuleByNameAsync(string name);
-    Task<ActionResult<Module>> GetModuleByIdAsync(int id);
-    Task<IEnumerable<Module>> GetModulesAsync();
-    Task<ActionResult<Module>> UpdateModuleAsync(int id, Module module);
-    Task<ActionResult<Module>> EnableOrDisableModuleAsync(int id, bool active);
+    Task<ActionResult<ModuleResultDTO>> GetModuleByIdAsync(int id);
+    Task<IEnumerable<ModuleResultDTO>> GetModulesAsync();
+    Task<ActionResult<ModuleResultDTO>> UpdateModuleAsync(int id, ModuleRequestDTO module);
+    Task<ActionResult<ModuleResultDTO>> EnableOrDisableModuleAsync(int id);
   }
 }

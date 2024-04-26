@@ -21,12 +21,9 @@ namespace CoreLogin_Presentation.Controllers
     [AllowAnonymous]
     public async Task<ActionResult<ModuleResultDTO>> AddModuleAsync([FromBody] ModuleRequestDTO module)
     {
-      var newModule = await _moduleRepository.AddModuleAsync(module);
-      if (newModule == null)
-      {
-        return BadRequest("Module already exists");
-      }
-      return Ok(module);
+      var moduleFound = await _moduleRepository.AddModuleAsync(module);
+
+      return moduleFound;
 
     }
 
@@ -43,20 +40,17 @@ namespace CoreLogin_Presentation.Controllers
     [HttpGet]
     [Route("id/{id:int}")]
     [AllowAnonymous]
-    public async Task<IActionResult> GetModuleByIdAsync([FromRoute] int id)
+    public async Task<ActionResult<ModuleResultDTO>> GetModuleByIdAsync([FromRoute] int id)
     {
       var module = await _moduleRepository.GetModuleByIdAsync(id);
-      if (module == null)
-      {
-        return NotFound("Module not found");
-      }
-      return Ok(module);
+   
+      return module;
     }
 
     [HttpGet]
     [Route("all")]
     [AllowAnonymous]
-    public async Task<IActionResult> GetModulesAsync()
+    public async Task<ActionResult<ModuleResultDTO>> GetModulesAsync()
     {
       var modules = await _moduleRepository.GetModulesAsync();
       return Ok(modules);
@@ -65,7 +59,7 @@ namespace CoreLogin_Presentation.Controllers
     [HttpPut]
     [Route("update/{id:int}")]
     [AllowAnonymous]
-    public async Task<IActionResult> UpdateModuleAsync([FromRoute] int id, [FromBody] Module module)
+    public async Task<IActionResult> UpdateModuleAsync([FromRoute] int id, [FromBody] ModuleRequestDTO module)
     {
       var updatedModule = await _moduleRepository.UpdateModuleAsync(id, module);
       if (updatedModule == null)
@@ -78,14 +72,11 @@ namespace CoreLogin_Presentation.Controllers
     [HttpPut]
     [Route("active/{id:int}")]
     [AllowAnonymous]
-    public async Task<IActionResult> EnableOrDisableModuleAsync([FromRoute] int id, [FromBody] bool active)
+    public async Task<ActionResult<ModuleResultDTO>> EnableOrDisableModuleAsync([FromRoute] int id)
     {
-      var module = await _moduleRepository.EnableOrDisableModuleAsync(id, active);
-      if (module == null)
-      {
-        return NotFound("Module not found");
-      }
-      return Ok(module);
+      var module = await _moduleRepository.EnableOrDisableModuleAsync(id);
+    
+      return module;
     }
 
   }

@@ -65,24 +65,31 @@ namespace CoreLogin_Infrastructure.Repository
     /// </summary>
     /// <param name="id">ID of the module</param>
     /// <returns>Module</returns>
-    public async Task<ActionResult<Module>> GetModuleByIdAsync(int id)
+    public async Task<ActionResult<ModuleResultDTO>> GetModuleByIdAsync(int id)
     {
-      var moduleExists = await _dbContext.Modules.FirstOrDefaultAsync(m => m.Id == id);
-      if (moduleExists == null)
+      // return module with all groups related
+      var module = await _dbContext.Modules.Include(m => m.GroupModules).ThenInclude(gm => gm.Group).FirstOrDefaultAsync(m => m.Id == id);
+      if (module == null)
       {
         return new NotFoundObjectResult("Module not found");
       }
 
-      return new OkObjectResult(moduleExists);
+      var moduleConverted = ModuleConverter.ModuleResult(module);
+      return new OkObjectResult(moduleConverted);
     }
 
     /// <summary>
     /// Get all Modules
     /// </summary>
     /// <returns></returns>
-    public async Task<IEnumerable<Module>> GetModulesAsync()
+    public async Task<IEnumerable<ModuleResultDTO>> GetModulesAsync()
     {
-      return await _dbContext.Modules.ToListAsync();
+      // return all modules with all groups related
+      var allModules = await _dbContext.Modules.Include(m => m.GroupModules).ThenInclude(gm => gm.Group).ToListAsync();
+
+      var allModulesConverted = allModules.Select(m => ModuleConverter.ModuleResult(m)).ToList();
+
+      return allModulesConverted;
     }
 
     /// <summary>
@@ -91,7 +98,7 @@ namespace CoreLogin_Infrastructure.Repository
     /// <param name="id">Id</param>
     /// <param name="module">Module Object</param>
     /// <returns></returns>
-    public async Task<ActionResult<Module>> UpdateModuleAsync(int id, Module module)
+    public async Task<ActionResult<ModuleResultDTO>> UpdateModuleAsync(int id, ModuleRequestDTO module)
     {
       var moduleExist = await _dbContext.Modules.FirstOrDefaultAsync(m => m.Id == id);
       if (module == null)
@@ -106,7 +113,9 @@ namespace CoreLogin_Infrastructure.Repository
       _dbContext.Modules.Update(moduleExist);
       await _dbContext.SaveChangesAsync();
 
-      return new OkObjectResult(moduleExist);
+      var moduleConverted = ModuleConverter.ModuleResult(moduleExist);
+
+      return new OkObjectResult(moduleConverted);
     }
 
     /// <summary>
@@ -115,18 +124,25 @@ namespace CoreLogin_Infrastructure.Repository
     /// <param name="id">ID</param>
     /// <param name="active">Active: True/False</param>
     /// <returns></returns>
-    public async Task<ActionResult<Module>> EnableOrDisableModuleAsync(int id, bool active)
+    public async Task<ActionResult<ModuleResultDTO>> EnableOrDisableModuleAsync(int id)
     {
-      var module = await _dbContext.Modules.FindAsync(id);
-      if (module == null)
+      var moduleExist = await _dbContext.Modules.Include(m => m.GroupModules).ThenInclude(gm => gm.Group).FirstOrDefaultAsync(m => m.Id == id);
+
+      if (moduleExist == null)
       {
         return new NotFoundResult();
       }
 
-      module.Active = active;
+      moduleExist.Active = !moduleExist.Active;
+
+      _dbContext.Modules.Update(moduleExist);
+
       await _dbContext.SaveChangesAsync();
 
-      return new OkObjectResult(module);
+      var moduleConverted = ModuleConverter.ModuleResult(moduleExist);
+
+      return new OkObjectResult(moduleConverted);
+
     }
 
   }

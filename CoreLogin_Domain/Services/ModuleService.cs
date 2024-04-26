@@ -14,12 +14,12 @@ namespace CoreLogin_Application.Services
       _moduleRepository = moduleRepository;
     }
 
-    public async Task<IEnumerable<Module>> GetModulesAsync()
+    public async Task<IEnumerable<ModuleResultDTO>> GetModulesAsync()
     {
       return await _moduleRepository.GetModulesAsync();
     }
 
-    public async Task<ActionResult<Module>> GetModuleByIdAsync(int id)
+    public async Task<ActionResult<ModuleResultDTO>> GetModuleByIdAsync(int id)
     {
       return await _moduleRepository.GetModuleByIdAsync(id);
     }
@@ -29,7 +29,7 @@ namespace CoreLogin_Application.Services
       await _moduleRepository.AddModuleAsync(module);
     }
 
-    public async Task UpdateModuleAsync(int id, Module module)
+    public async Task UpdateModuleAsync(int id, ModuleRequestDTO module)
     {
       await _moduleRepository.UpdateModuleAsync(id, module);
     }

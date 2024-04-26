@@ -22,7 +22,8 @@ namespace CoreLogin_Domain.Converters.DTO
     public bool Active { get; set; } = true;
 
     [DefaultValue(new string[] { "Administrative", "Users" })]
-    public IEnumerable<string> Groups { get; set; }
+
+    public IEnumerable<string>? Groups { get; set; }
 
   }
 

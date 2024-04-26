@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "E:\\Projetos\\CoreLogin\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6EBD1F98-C35F-4CAA-B6F3-78E524FF8DC8}|CoreLogin_Domain\\CoreLogin_Domain.csproj|e:\\projetos\\corelogin\\corelogin_domain\\converters\\dto\\moduledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EBD1F98-C35F-4CAA-B6F3-78E524FF8DC8}|CoreLogin_Domain\\CoreLogin_Domain.csproj|solutionrelative:corelogin_domain\\converters\\dto\\moduledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{81D64224-2BDC-47C5-A44B-B93D5F8AAE94}|CoreLogin_Infrastructure\\CoreLogin_Infrastructure.csproj|e:\\projetos\\corelogin\\corelogin_infrastructure\\repository\\modulerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{81D64224-2BDC-47C5-A44B-B93D5F8AAE94}|CoreLogin_Infrastructure\\CoreLogin_Infrastructure.csproj|solutionrelative:corelogin_infrastructure\\repository\\modulerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B1525FC7-A7D1-4D5E-A3E4-C54F963B3346}|CoreLogin_Presentation\\CoreLogin_Presentation.csproj|e:\\projetos\\corelogin\\corelogin_presentation\\controllers\\modulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B1525FC7-A7D1-4D5E-A3E4-C54F963B3346}|CoreLogin_Presentation\\CoreLogin_Presentation.csproj|solutionrelative:corelogin_presentation\\controllers\\modulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6EBD1F98-C35F-4CAA-B6F3-78E524FF8DC8}|CoreLogin_Domain\\CoreLogin_Domain.csproj|e:\\projetos\\corelogin\\corelogin_domain\\converters\\moduleconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6EBD1F98-C35F-4CAA-B6F3-78E524FF8DC8}|CoreLogin_Domain\\CoreLogin_Domain.csproj|solutionrelative:corelogin_domain\\converters\\moduleconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B1525FC7-A7D1-4D5E-A3E4-C54F963B3346}|CoreLogin_Presentation\\CoreLogin_Presentation.csproj|e:\\projetos\\corelogin\\corelogin_presentation\\controllers\\modulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B1525FC7-A7D1-4D5E-A3E4-C54F963B3346}|CoreLogin_Presentation\\CoreLogin_Presentation.csproj|solutionrelative:corelogin_presentation\\controllers\\modulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6EBD1F98-C35F-4CAA-B6F3-78E524FF8DC8}|CoreLogin_Domain\\CoreLogin_Domain.csproj|e:\\projetos\\corelogin\\corelogin_domain\\converters\\dto\\moduledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EBD1F98-C35F-4CAA-B6F3-78E524FF8DC8}|CoreLogin_Domain\\CoreLogin_Domain.csproj|solutionrelative:corelogin_domain\\converters\\dto\\moduledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EBD1F98-C35F-4CAA-B6F3-78E524FF8DC8}|CoreLogin_Domain\\CoreLogin_Domain.csproj|e:\\projetos\\corelogin\\corelogin_domain\\repositories\\imodulerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EBD1F98-C35F-4CAA-B6F3-78E524FF8DC8}|CoreLogin_Domain\\CoreLogin_Domain.csproj|solutionrelative:corelogin_domain\\repositories\\imodulerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,21 +30,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 220,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ModuleDTO.cs",
-              "DocumentMoniker": "E:\\Projetos\\CoreLogin\\CoreLogin_Domain\\Converters\\DTO\\ModuleDTO.cs",
-              "RelativeDocumentMoniker": "CoreLogin_Domain\\Converters\\DTO\\ModuleDTO.cs",
-              "ToolTip": "E:\\Projetos\\CoreLogin\\CoreLogin_Domain\\Converters\\DTO\\ModuleDTO.cs",
-              "RelativeToolTip": "CoreLogin_Domain\\Converters\\DTO\\ModuleDTO.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAABcAAAA5AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-25T21:52:55.125Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
@@ -49,33 +40,59 @@
               "RelativeDocumentMoniker": "CoreLogin_Domain\\Converters\\ModuleConverter.cs",
               "ToolTip": "E:\\Projetos\\CoreLogin\\CoreLogin_Domain\\Converters\\ModuleConverter.cs",
               "RelativeToolTip": "CoreLogin_Domain\\Converters\\ModuleConverter.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAxwBEAAAAOAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-25T21:52:33.326Z",
+              "WhenOpened": "2024-04-25T23:55:33.778Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
+              "Title": "ModuleDTO.cs",
+              "DocumentMoniker": "E:\\Projetos\\CoreLogin\\CoreLogin_Domain\\Converters\\DTO\\ModuleDTO.cs",
+              "RelativeDocumentMoniker": "CoreLogin_Domain\\Converters\\DTO\\ModuleDTO.cs",
+              "ToolTip": "E:\\Projetos\\CoreLogin\\CoreLogin_Domain\\Converters\\DTO\\ModuleDTO.cs",
+              "RelativeToolTip": "CoreLogin_Domain\\Converters\\DTO\\ModuleDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAkwBUAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T23:54:20.262Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IModuleRepository.cs",
+              "DocumentMoniker": "E:\\Projetos\\CoreLogin\\CoreLogin_Domain\\Repositories\\IModuleRepository.cs",
+              "RelativeDocumentMoniker": "CoreLogin_Domain\\Repositories\\IModuleRepository.cs",
+              "ToolTip": "E:\\Projetos\\CoreLogin\\CoreLogin_Domain\\Repositories\\IModuleRepository.cs",
+              "RelativeToolTip": "CoreLogin_Domain\\Repositories\\IModuleRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAwAAABZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T23:38:47.272Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "ModuleRepository.cs",
               "DocumentMoniker": "E:\\Projetos\\CoreLogin\\CoreLogin_Infrastructure\\Repository\\ModuleRepository.cs",
               "RelativeDocumentMoniker": "CoreLogin_Infrastructure\\Repository\\ModuleRepository.cs",
               "ToolTip": "E:\\Projetos\\CoreLogin\\CoreLogin_Infrastructure\\Repository\\ModuleRepository.cs",
               "RelativeToolTip": "CoreLogin_Infrastructure\\Repository\\ModuleRepository.cs",
-              "ViewState": "AQIAACsAAAAAAAAAAAAqwDEAAAAEAAAA",
+              "ViewState": "AQIAAEwAAAAAAAAAAAAUwIAAAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-25T21:38:00.976Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "ModuleController.cs",
               "DocumentMoniker": "E:\\Projetos\\CoreLogin\\CoreLogin_Presentation\\Controllers\\ModuleController.cs",
               "RelativeDocumentMoniker": "CoreLogin_Presentation\\Controllers\\ModuleController.cs",
               "ToolTip": "E:\\Projetos\\CoreLogin\\CoreLogin_Presentation\\Controllers\\ModuleController.cs",
               "RelativeToolTip": "CoreLogin_Presentation\\Controllers\\ModuleController.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAUwCUAAAAGAAAA",
+              "ViewState": "AQIAADgAAAAAAAAAAAAiwFIAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-25T21:37:06.711Z",
               "EditorCaption": ""
