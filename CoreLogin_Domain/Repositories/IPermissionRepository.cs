@@ -8,7 +8,6 @@ namespace CoreLogin_Domain.Repositories
   {
     Task<ActionResult<PermissionResultDTO>> CreatePermissionAsync(PermissionRequestDTO permission);
     Task<IEnumerable<Permission>> GetPermissionsAsync();
-    Task<ActionResult<PermissionResultDTO>> GetPermissionByOperation(string operation);
-    Task<Permission> UpdatePermissionAsync(Permission permission);
+    Task<ActionResult> DeletePermissionAsync(PermissionRequestDTO permission);
   }
 }

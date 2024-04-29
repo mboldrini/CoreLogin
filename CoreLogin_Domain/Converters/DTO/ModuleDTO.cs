@@ -39,6 +39,7 @@ namespace CoreLogin_Domain.Converters.DTO
     public string? Description { get; set; }
 
     [DefaultValue(true)]
+    [ReadOnly(true)]
     public bool Active { get; set; } = true;
   }
 

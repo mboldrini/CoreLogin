@@ -39,15 +39,12 @@ namespace CoreLogin_Presentation.Controllers
       return permission.Select(p => PermissionConverter.PermissionResult(p));
     }
 
-    [HttpGet]
-    [Route("{operation}")]
+    [HttpDelete]
+    [Route("delete")]
     [AllowAnonymous]
-    [SwaggerOperation(Summary = "Get Permission by Operation Name")]
-    public async Task<ActionResult<PermissionResultDTO>> GetPermissionByOperationAsync([FromRoute] string operation)
+    public async Task<ActionResult> DeletePermissionAsync([FromBody] PermissionRequestDTO permission)
     {
-      var permission = await _permissionRepository.GetPermissionByOperation(operation);
-
-      return permission;
+      return await _permissionRepository.DeletePermissionAsync(permission);
     }
 
   }

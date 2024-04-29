@@ -22,7 +22,7 @@ namespace CoreLogin_Presentation.Controllers
     [HttpPost]
     [Route("create")]
     [AllowAnonymous]
-    public async Task<IActionResult> AddUserAsync([FromBody] User user)
+    public async Task<ActionResult<User>> AddUserAsync([FromBody] User user)
     {
       var newUser = await _userRepository.AddUserAsync(user);
 

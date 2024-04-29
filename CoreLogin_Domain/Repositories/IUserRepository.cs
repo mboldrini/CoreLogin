@@ -6,9 +6,9 @@ namespace CoreLogin_Domain.Repositories
   public interface IUserRepository
   {
     Task<ActionResult> AddUserAsync(User user);
-    Task<User> GetUserByIdAsync(Guid id);
-    Task<User> GetUserByEmailAsync(string email);
-    Task<User> GetUserByUserNameAsync(string userName);
+    Task<ActionResult<User>> GetUserByIdAsync(Guid id);
+    Task<ActionResult<User>> GetUserByEmailAsync(string email);
+    Task<ActionResult<User>> GetUserByUserNameAsync(string userName);
     Task<User> GetUserByUserEmailAndPasswordAsync(string email, string password);
   }
 }

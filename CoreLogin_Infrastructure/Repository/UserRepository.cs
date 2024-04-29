@@ -44,9 +44,15 @@ namespace CoreLogin_Infrastructure.Repository
     /// </summary>
     /// <param name="email">Email</param>
     /// <returns></returns>
-    public async Task<User> GetUserByEmailAsync(string email)
+    public async Task<ActionResult<User>> GetUserByEmailAsync(string email)
     {
-      return await _dbContext.Users.FirstOrDefaultAsync(u => u.Email == email);
+      var userExists = await _dbContext.Users.FirstOrDefaultAsync(u => u.Email == email);
+      if(userExists == null)
+      {
+        return new NotFoundResult();
+      }
+
+      return new OkObjectResult(userExists);
     }
 
     /// <summary>
@@ -54,17 +60,23 @@ namespace CoreLogin_Infrastructure.Repository
     /// </summary>
     /// <param name="Uid">Uid</param>
     /// <returns></returns>
-    public async Task<User> GetUserByIdAsync(Guid Uid)
+    public async Task<ActionResult<User>> GetUserByIdAsync(Guid Uid)
     {
-      return await _dbContext.Users.FirstOrDefaultAsync(u => u.Uid == Uid);
+      var userExists = await _dbContext.Users.FirstOrDefaultAsync(u => u.Uid == Uid);
+      if (userExists == null)
+      {
+        return new NotFoundResult();
+      }
+
+      return new OkObjectResult(userExists);
     }
 
     /// <summary>
-    /// Get User by Email and Password
+    /// Get User by Email and Password - used to get the JWT Token (don't show the user infos
     /// </summary>
     /// <param name="email">Email</param>
     /// <param name="password">Password</param>
-    /// <returns></returns>
+    /// <returns>User</returns>
     public async Task<User> GetUserByUserEmailAndPasswordAsync(string email, string password)
     {
       var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Email == email);
@@ -73,14 +85,18 @@ namespace CoreLogin_Infrastructure.Repository
         return null;
       }
 
-      user.Password = string.Empty;
-    
       return user;
     }
 
-    public async Task<User> GetUserByUserNameAsync(string userName)
+    public async Task<ActionResult<User>> GetUserByUserNameAsync(string userName)
     {
-      return await _dbContext.Users.FirstOrDefaultAsync(u => u.UserName == userName);
+      var userExists = await _dbContext.Users.FirstOrDefaultAsync(u => u.UserName == userName);
+      if (userExists == null)
+      {
+        return new NotFoundResult();
+      }
+
+      return new OkObjectResult(userExists);
     }
   }
 }
