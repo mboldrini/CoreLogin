@@ -1,12 +1,88 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "E:\\Projetos\\CoreLogin\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{81D64224-2BDC-47C5-A44B-B93D5F8AAE94}|CoreLogin_Infrastructure\\CoreLogin_Infrastructure.csproj|e:\\projetos\\corelogin\\corelogin_infrastructure\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81D64224-2BDC-47C5-A44B-B93D5F8AAE94}|CoreLogin_Infrastructure\\CoreLogin_Infrastructure.csproj|solutionrelative:corelogin_infrastructure\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B1525FC7-A7D1-4D5E-A3E4-C54F963B3346}|CoreLogin_Presentation\\CoreLogin_Presentation.csproj|e:\\projetos\\corelogin\\corelogin_presentation\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B1525FC7-A7D1-4D5E-A3E4-C54F963B3346}|CoreLogin_Presentation\\CoreLogin_Presentation.csproj|solutionrelative:corelogin_presentation\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EBD1F98-C35F-4CAA-B6F3-78E524FF8DC8}|CoreLogin_Domain\\CoreLogin_Domain.csproj|e:\\projetos\\corelogin\\corelogin_domain\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EBD1F98-C35F-4CAA-B6F3-78E524FF8DC8}|CoreLogin_Domain\\CoreLogin_Domain.csproj|solutionrelative:corelogin_domain\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EBD1F98-C35F-4CAA-B6F3-78E524FF8DC8}|CoreLogin_Domain\\CoreLogin_Domain.csproj|e:\\projetos\\corelogin\\corelogin_domain\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EBD1F98-C35F-4CAA-B6F3-78E524FF8DC8}|CoreLogin_Domain\\CoreLogin_Domain.csproj|solutionrelative:corelogin_domain\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 220,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "E:\\Projetos\\CoreLogin\\CoreLogin_Domain\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "CoreLogin_Domain\\Services\\UserService.cs",
+              "ToolTip": "E:\\Projetos\\CoreLogin\\CoreLogin_Domain\\Services\\UserService.cs",
+              "RelativeToolTip": "CoreLogin_Domain\\Services\\UserService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T20:40:10.626Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "E:\\Projetos\\CoreLogin\\CoreLogin_Domain\\Repositories\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "CoreLogin_Domain\\Repositories\\IUserRepository.cs",
+              "ToolTip": "E:\\Projetos\\CoreLogin\\CoreLogin_Domain\\Repositories\\IUserRepository.cs",
+              "RelativeToolTip": "CoreLogin_Domain\\Repositories\\IUserRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAcAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T20:34:45.026Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "E:\\Projetos\\CoreLogin\\CoreLogin_Infrastructure\\Repository\\UserRepository.cs",
+              "RelativeDocumentMoniker": "CoreLogin_Infrastructure\\Repository\\UserRepository.cs",
+              "ToolTip": "E:\\Projetos\\CoreLogin\\CoreLogin_Infrastructure\\Repository\\UserRepository.cs",
+              "RelativeToolTip": "CoreLogin_Infrastructure\\Repository\\UserRepository.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAtwBsAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T20:34:06.524Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "E:\\Projetos\\CoreLogin\\CoreLogin_Presentation\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "CoreLogin_Presentation\\Controllers\\UsersController.cs",
+              "ToolTip": "E:\\Projetos\\CoreLogin\\CoreLogin_Presentation\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "CoreLogin_Presentation\\Controllers\\UsersController.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAB0AAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T20:33:49.701Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -21,13 +21,13 @@ namespace CoreLogin_Infrastructure.Repository
     /// </summary>
     /// <param name="user">User object</param>
     /// <returns></returns>
-    public async Task<ActionResult> AddUserAsync(User user)
+    public async Task<User> AddUserAsync(User user)
     {
 
       var userExists = await GetUserByEmailAsync(user.Email);
       if (userExists != null)
       {
-        return new BadRequestObjectResult("User Already Exists");
+        return null;
       }
 
       user.Uid = Guid.NewGuid();
@@ -36,7 +36,9 @@ namespace CoreLogin_Infrastructure.Repository
       await _dbContext.Users.AddAsync(user);
       await _dbContext.SaveChangesAsync();
 
-      return new OkResult();
+      user.Password = string.Empty;
+
+      return user;
     }
 
     /// <summary>
@@ -44,31 +46,15 @@ namespace CoreLogin_Infrastructure.Repository
     /// </summary>
     /// <param name="email">Email</param>
     /// <returns></returns>
-    public async Task<ActionResult<User>> GetUserByEmailAsync(string email)
+    public async Task<User> GetUserByEmailAsync(string email)
     {
       var userExists = await _dbContext.Users.FirstOrDefaultAsync(u => u.Email == email);
       if(userExists == null)
       {
-        return new NotFoundResult();
+        return null;
       }
 
-      return new OkObjectResult(userExists);
-    }
-
-    /// <summary>
-    /// Get User By Uid (Guid)
-    /// </summary>
-    /// <param name="Uid">Uid</param>
-    /// <returns></returns>
-    public async Task<ActionResult<User>> GetUserByIdAsync(Guid Uid)
-    {
-      var userExists = await _dbContext.Users.FirstOrDefaultAsync(u => u.Uid == Uid);
-      if (userExists == null)
-      {
-        return new NotFoundResult();
-      }
-
-      return new OkObjectResult(userExists);
+      return userExists;
     }
 
     /// <summary>
@@ -88,15 +74,5 @@ namespace CoreLogin_Infrastructure.Repository
       return user;
     }
 
-    public async Task<ActionResult<User>> GetUserByUserNameAsync(string userName)
-    {
-      var userExists = await _dbContext.Users.FirstOrDefaultAsync(u => u.UserName == userName);
-      if (userExists == null)
-      {
-        return new NotFoundResult();
-      }
-
-      return new OkObjectResult(userExists);
-    }
   }
 }

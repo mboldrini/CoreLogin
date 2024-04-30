@@ -25,8 +25,12 @@ namespace CoreLogin_Presentation.Controllers
     public async Task<ActionResult<User>> AddUserAsync([FromBody] User user)
     {
       var newUser = await _userRepository.AddUserAsync(user);
+      if(newUser == null)
+      {
+        return BadRequest("User already exists");
+      }
 
-      return newUser;
+      return new OkObjectResult(newUser);
     }
 
     [HttpPost]
@@ -37,7 +41,7 @@ namespace CoreLogin_Presentation.Controllers
       var user = await _userRepository.GetUserByUserEmailAndPasswordAsync(loginInfos.Email, loginInfos.Password);
       if (user == null)
       {
-        return NotFound();
+        return new NotFoundObjectResult("Email or password incorrect");
       }
 
       return Ok(TokenService.GenerateToken(user));

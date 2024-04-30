@@ -22,7 +22,7 @@ namespace CoreLogin_Domain.Entities
 
     [Required(ErrorMessage = "This field is required")]
     [EmailAddress(ErrorMessage = "Invalid email address")]
-    [DefaultValue("admin@adminn.com")]
+    [DefaultValue("admin@admin.com")]
     public string Email { get; set; }
 
     [Required(ErrorMessage = "This field is required")]

@@ -13,27 +13,14 @@ namespace CoreLogin_Application.Services
       _userRepository = userRepository;
     }
 
-    public async Task<ActionResult> AddUserAsync(User user)
+    public async Task<User> AddUserAsync(User user)
     {
       return await _userRepository.AddUserAsync(user);
     }
 
-    public async Task<ActionResult<User>> GetUserByIdAsync(Guid id)
-    {
-      var user = await _userRepository.GetUserByIdAsync(id);
-      return user;
-    }
-
-    public async Task<ActionResult<User>> GetUserByEmailAsync(string email)
+    public async Task<User> GetUserByEmailAsync(string email)
     {
       var user = await _userRepository.GetUserByEmailAsync(email);
-
-      return user;
-    }
-
-    public async Task<ActionResult<User>> GetUserByUserNameAsync(string userName)
-    {
-      var user = await _userRepository.GetUserByUserNameAsync(userName);
 
       return user;
     }
