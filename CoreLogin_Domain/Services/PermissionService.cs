@@ -25,7 +25,7 @@ namespace CoreLogin_Application.Services
       return await _permissionRepository.CreatePermissionAsync(permission);
     }
 
-    public async Task<ActionResult> DeletePermissionAsync(PermissionRequestDTO permission)
+    public async Task<PermissionResultDTO> DeletePermissionAsync(PermissionRequestDTO permission)
     {
       return await _permissionRepository.DeletePermissionAsync(permission);
     }

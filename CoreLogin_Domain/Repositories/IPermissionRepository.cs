@@ -6,8 +6,8 @@ namespace CoreLogin_Domain.Repositories
 {
   public interface IPermissionRepository
   {
-    Task<ActionResult<PermissionResultDTO>> CreatePermissionAsync(PermissionRequestDTO permission);
+    Task<PermissionResultDTO> CreatePermissionAsync(PermissionRequestDTO permission);
     Task<IEnumerable<Permission>> GetPermissionsAsync();
-    Task<ActionResult> DeletePermissionAsync(PermissionRequestDTO permission);
+    Task<PermissionResultDTO> DeletePermissionAsync(PermissionRequestDTO permission);
   }
 }
