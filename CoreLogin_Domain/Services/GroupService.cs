@@ -14,27 +14,27 @@ namespace CoreLogin_Application.Services
       _groupRepository = groupRepository;
     }
 
-    public async Task<ActionResult<GroupResultDTO>> GetGroupByIdAsync(int groupId)
+    public async Task<GroupResultDTO> GetGroupByIdAsync(int groupId)
     {
       return await _groupRepository.GetGroupByIdAsync(groupId);
     }
 
-    public async Task<ActionResult<GroupResultDTO>> GetGroupByNameAndAllPermissionsAsync(string groupName)
+    public async Task<GroupResultDTO> GetGroupByNameAndAllPermissionsAsync(string groupName)
     {
       return await _groupRepository.GetGroupByNameAndAllPermissionsAsync(groupName);
     }
 
-    public async Task<ActionResult<IEnumerable<GroupResultDTO>>> GetGroupsAsync()
+    public async Task<IEnumerable<GroupResultDTO>> GetGroupsAsync()
     {
       return await _groupRepository.GetAllGroupsAsync();
     }
 
-    public async Task<ActionResult<GroupResultDTO>> CreateGroupAsync(GroupRequestDTO group)
+    public async Task<GroupResultDTO> CreateGroupAsync(GroupRequestDTO group)
     {
       return await _groupRepository.CreateGroupAsync(group);
     }
 
-    public async Task<ActionResult<GroupResultDTO>> UpdateGroupAsync(int id, GroupRequestDTO group)
+    public async Task<GroupResultDTO> UpdateGroupAsync(int id, GroupRequestDTO group)
     {
       return await _groupRepository.UpdateGroupAsync(id, group);
     }

@@ -21,8 +21,12 @@ namespace CoreLogin_Presentation.Controllers
     public async Task<ActionResult<GroupResultDTO>> CreateGroupAsync([FromBody] GroupRequestDTO group)
     {
       var newGroup = await _groupRepository.CreateGroupAsync(group);
-      
-      return newGroup;
+      if (newGroup == null)
+      {
+        return BadRequest("Group already exists");
+      }
+
+      return new OkObjectResult(newGroup);
     }
 
 
@@ -32,7 +36,7 @@ namespace CoreLogin_Presentation.Controllers
     {
       var groups = await _groupRepository.GetAllGroupsAsync();
 
-      return groups;
+      return new OkObjectResult(groups);
     }
 
     [HttpGet]
@@ -40,8 +44,12 @@ namespace CoreLogin_Presentation.Controllers
     public async Task<ActionResult<GroupResultDTO>> GetGroupByIdAsync(int id)
     {
       var group = await _groupRepository.GetGroupByIdAsync(id);
+      if(group == null)
+      {
+        return NotFound();
+      }
 
-      return group;
+      return new OkObjectResult(group);
     }
 
     [HttpGet]
@@ -49,8 +57,12 @@ namespace CoreLogin_Presentation.Controllers
     public async Task<ActionResult<GroupResultDTO>> GetGroupByNameAndAllPermissionsAsync(string name)
     {
       var group = await _groupRepository.GetGroupByNameAndAllPermissionsAsync(name);
+      if (group == null)
+      {
+        return NotFound();
+      }
 
-      return group;
+      return new OkObjectResult(group);
     }
 
     [HttpPost]
@@ -58,8 +70,12 @@ namespace CoreLogin_Presentation.Controllers
     public async Task<ActionResult<GroupResultDTO>> UpdateGroupAsync([FromRoute] int id, [FromBody] GroupRequestDTO group)
     {
       var updatedGroup = await _groupRepository.UpdateGroupAsync(id, group);
+      if (updatedGroup == null)
+      {
+        return NotFound();
+      }
 
-      return updatedGroup;
+      return new OkObjectResult(updatedGroup);
     }
 
     [HttpDelete]
@@ -67,8 +83,12 @@ namespace CoreLogin_Presentation.Controllers
     public async Task<ActionResult<GroupResultDTO>> DeleteGroup([FromRoute] int id)
     {
       var deletedGroup = await _groupRepository.DeleteGroup(id);
+      if (deletedGroup == false)
+      {
+        return new NotFoundObjectResult("Group not found");
+      }
 
-      return deletedGroup;
+      return Ok();
     }
 
   }
