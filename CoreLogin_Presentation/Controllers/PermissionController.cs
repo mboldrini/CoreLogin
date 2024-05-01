@@ -1,13 +1,9 @@
 ﻿using CoreLogin.Domain.Entities.Enum;
 using CoreLogin_Domain.Converters;
 using CoreLogin_Domain.Converters.DTO;
-using CoreLogin_Domain.Entities;
 using CoreLogin_Domain.Repositories;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.OpenApi.Models;
-using Swashbuckle.AspNetCore.Annotations;
 
 namespace CoreLogin_Presentation.Controllers
 {
@@ -21,6 +17,12 @@ namespace CoreLogin_Presentation.Controllers
       _permissionRepository = permissionRepository;
     }
 
+
+    /// <summary>
+    /// Endpoint to create a new permission type and operation
+    /// </summary>
+    /// <param name="permission">PermissionRequestDTo</param>
+    /// <returns>PermissionResult</returns>
     [HttpPost]
     [Route("create")]
     [AllowAnonymous]
@@ -42,6 +44,10 @@ namespace CoreLogin_Presentation.Controllers
       return new OkObjectResult(newPermission);
     }
 
+    /// <summary>
+    /// Endpoint to get all permissions
+    /// </summary>
+    /// <returns>PermissionResultDTO - Enumerable</returns>
     [HttpGet]
     [Route("all")]
     [AllowAnonymous]
@@ -52,6 +58,11 @@ namespace CoreLogin_Presentation.Controllers
       return permission.Select(p => PermissionConverter.PermissionResult(p));
     }
 
+    /// <summary>
+    /// Endpoint to delete a permission
+    /// </summary>
+    /// <param name="permission">Permissio to be deleted</param>
+    /// <returns>OkResult</returns>
     [HttpDelete]
     [Route("delete")]
     [AllowAnonymous]

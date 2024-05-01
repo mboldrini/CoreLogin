@@ -1,5 +1,4 @@
 ﻿using CoreLogin_Domain.Entities;
-using Microsoft.AspNetCore.Mvc;
 
 namespace CoreLogin_Domain.Repositories
 {

@@ -19,9 +19,9 @@ namespace CoreLogin_Application.Services
       {
         Subject = new ClaimsIdentity(new Claim[]
         {
+          new Claim(ClaimTypes.NameIdentifier, user.Uid.ToString()),
           new Claim(ClaimTypes.Name, user.UserName.ToString()),
           new Claim(ClaimTypes.Email, user.Email.ToString()),
-          new Claim(ClaimTypes.NameIdentifier, user.Uid.ToString()),
         }),
         Expires = DateTime.UtcNow.AddHours(2),
         SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

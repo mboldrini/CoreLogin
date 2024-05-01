@@ -2,6 +2,9 @@
 
 namespace CoreLogin_Domain.Entities.Relations
 {
+  /// <summary>
+  /// UserGroup entity - User and Group Tables
+  /// </summary>
   public class UserGroup
   {
     [Key]

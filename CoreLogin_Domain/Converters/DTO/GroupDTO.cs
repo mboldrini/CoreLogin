@@ -4,7 +4,6 @@ using System.Text.Json.Serialization;
 
 namespace CoreLogin_Domain.Converters.DTO
 {
-
   public sealed class GroupResultDTO {
 
     [JsonIgnore]

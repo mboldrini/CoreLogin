@@ -1,8 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using System.Text.Json.Serialization;
-using CoreLogin_Domain.Entities.Relations;
-using CoreLogin_Domain.Entities;
 
 namespace CoreLogin_Domain.Converters.DTO
 {

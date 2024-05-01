@@ -2,7 +2,10 @@
 
 namespace CoreLogin_Domain.Entities.Relations
 {
-  public  class GroupModule
+  /// <summary>
+  /// GroupModule entity - Group and Module Tables
+  /// </summary>
+  public class GroupModule
   {
     [Key]
     public int Id { get; set; }

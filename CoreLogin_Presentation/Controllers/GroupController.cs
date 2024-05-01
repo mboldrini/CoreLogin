@@ -1,5 +1,4 @@
 ﻿using CoreLogin_Domain.Converters.DTO;
-using CoreLogin_Domain.Entities;
 using CoreLogin_Domain.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,6 +15,11 @@ namespace CoreLogin_Presentation.Controllers
       _groupRepository = groupRepository;
     }
 
+    /// <summary>
+    /// Endpoint to Create a new Group (with all permissions)
+    /// </summary>
+    /// <param name="group">GroupRequestDTO</param>
+    /// <returns>GroupResultDTO</returns>
     [HttpPost]
     [Route("create")]
     public async Task<ActionResult<GroupResultDTO>> CreateGroupAsync([FromBody] GroupRequestDTO group)
@@ -29,7 +33,10 @@ namespace CoreLogin_Presentation.Controllers
       return new OkObjectResult(newGroup);
     }
 
-
+    /// <summary>
+    /// Endpoint to get all Groups with all permissions
+    /// </summary>
+    /// <returns>IEnumerable GroupResultDTO</returns>
     [HttpGet]
     [Route("all")]
     public async Task<ActionResult<IEnumerable<GroupResultDTO>>> GetAllGroupsAsync()
@@ -39,6 +46,11 @@ namespace CoreLogin_Presentation.Controllers
       return new OkObjectResult(groups);
     }
 
+    /// <summary>
+    /// Endpoint to get a Group by Id with all permissions
+    /// </summary>
+    /// <param name="id">ID of the group</param>
+    /// <returns>GroupResultDTO</returns>
     [HttpGet]
     [Route("id/{id}")]
     public async Task<ActionResult<GroupResultDTO>> GetGroupByIdAsync(int id)
@@ -52,6 +64,11 @@ namespace CoreLogin_Presentation.Controllers
       return new OkObjectResult(group);
     }
 
+    /// <summary>
+    /// Endpoint to get a Group by Name - with all permissions
+    /// </summary>
+    /// <param name="name">Name of the group</param>
+    /// <returns>GroupResultDTO</returns>
     [HttpGet]
     [Route("name/{name}")]
     public async Task<ActionResult<GroupResultDTO>> GetGroupByNameAndAllPermissionsAsync(string name)
@@ -65,6 +82,12 @@ namespace CoreLogin_Presentation.Controllers
       return new OkObjectResult(group);
     }
 
+    /// <summary>
+    /// Endpoint to update a Group by Id
+    /// </summary>
+    /// <param name="id">ID of the group</param>
+    /// <param name="group">GroupRequestDTO</param>
+    /// <returns>GroupResultDTO</returns>
     [HttpPost]
     [Route("update/{id:int}")]
     public async Task<ActionResult<GroupResultDTO>> UpdateGroupAsync([FromRoute] int id, [FromBody] GroupRequestDTO group)
@@ -78,6 +101,11 @@ namespace CoreLogin_Presentation.Controllers
       return new OkObjectResult(updatedGroup);
     }
 
+    /// <summary>
+    /// Endpoint to delete a Group by Id
+    /// </summary>
+    /// <param name="id">ID of the group</param>
+    /// <returns>GroupResultDTO</returns>
     [HttpDelete]
     [Route("delete/{id:int}")]
     public async Task<ActionResult<GroupResultDTO>> DeleteGroup([FromRoute] int id)

@@ -1,5 +1,4 @@
 ﻿using CoreLogin_Domain.Converters.DTO;
-using CoreLogin_Domain.Entities;
 using CoreLogin_Domain.Repositories;
 using Microsoft.AspNetCore.Mvc;
 

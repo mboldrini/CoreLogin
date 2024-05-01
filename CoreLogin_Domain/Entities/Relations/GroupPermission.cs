@@ -2,6 +2,9 @@
 
 namespace CoreLogin_Domain.Entities.Relations
 {
+  /// <summary>
+  /// GroupPermission entity - Group and Permission Tables
+  /// </summary>
   public class GroupPermission
   {
     [Key]

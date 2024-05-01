@@ -1,5 +1,4 @@
 ﻿using CoreLogin_Domain.Converters.DTO;
-using CoreLogin_Domain.Entities;
 using CoreLogin_Domain.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -16,6 +15,11 @@ namespace CoreLogin_Presentation.Controllers
       _moduleRepository = moduleRepository;
     }
 
+    /// <summary>
+    /// Endpoint to create a new Module
+    /// </summary>
+    /// <param name="module">ModuleRequestDTP</param>
+    /// <returns>ModuleResultDTO</returns>
     [HttpPost]
     [Route("create")]
     [AllowAnonymous]
@@ -28,9 +32,14 @@ namespace CoreLogin_Presentation.Controllers
       }
 
       return new OkObjectResult(moduleFound);
-
     }
 
+
+    /// <summary>
+    /// Enndpoint to get a module by name
+    /// </summary>
+    /// <param name="name">Name of the module</param>
+    /// <returns>ModuleResultDTO</returns>
     [HttpGet]
     [Route("{name}")]
     [AllowAnonymous]
@@ -45,6 +54,11 @@ namespace CoreLogin_Presentation.Controllers
       return new OkObjectResult(module);
     }
 
+    /// <summary>
+    /// Endpoint to get a module by id
+    /// </summary>
+    /// <param name="id">ID of the module</param>
+    /// <returns>ModuleResultDTO</returns>
     [HttpGet]
     [Route("id/{id:int}")]
     [AllowAnonymous]
@@ -59,6 +73,10 @@ namespace CoreLogin_Presentation.Controllers
       return new OkObjectResult(module);
     }
 
+    /// <summary>
+    /// Endpoint to get all modules
+    /// </summary>
+    /// <returns>ModuleResultDTO</returns>
     [HttpGet]
     [Route("all")]
     [AllowAnonymous]
@@ -68,6 +86,12 @@ namespace CoreLogin_Presentation.Controllers
       return Ok(modules);
     }
 
+    /// <summary>
+    /// Endpoint to update a module
+    /// </summary>
+    /// <param name="id">ID of the module</param>
+    /// <param name="module">Module Infos</param>
+    /// <returns></returns>
     [HttpPut]
     [Route("update/{id:int}")]
     [AllowAnonymous]
@@ -81,6 +105,11 @@ namespace CoreLogin_Presentation.Controllers
       return new OkObjectResult(updatedModule);
     }
 
+    /// <summary>
+    /// Endpoint to enable or disable a module
+    /// </summary>
+    /// <param name="id">ID of the module</param>
+    /// <returns>ModuleResultDTO</returns>
     [HttpPut]
     [Route("active/{id:int}")]
     [AllowAnonymous]

@@ -19,6 +19,12 @@ namespace CoreLogin_Presentation.Controllers
       _userRepository = userRepository;
     }
 
+
+    /// <summary>
+    /// Endpoint to Create a new User
+    /// </summary>
+    /// <param name="user">User infos (UserObject)</param>
+    /// <returns>User</returns>
     [HttpPost]
     [Route("create")]
     [AllowAnonymous]
@@ -33,6 +39,12 @@ namespace CoreLogin_Presentation.Controllers
       return new OkObjectResult(newUser);
     }
 
+
+    /// <summary>
+    /// Endpoint to get a User by Email and password
+    /// </summary>
+    /// <param name="loginInfos">Email and password, via body</param>
+    /// <returns>User Token</returns>
     [HttpPost]
     [Route("login")]
     [AllowAnonymous]

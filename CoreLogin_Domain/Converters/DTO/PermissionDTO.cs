@@ -1,5 +1,4 @@
-﻿using CoreLogin.Domain.Entities.Enum;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 
 namespace CoreLogin_Domain.Converters.DTO

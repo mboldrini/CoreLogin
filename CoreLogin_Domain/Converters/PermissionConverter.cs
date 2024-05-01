@@ -6,7 +6,11 @@ namespace CoreLogin_Domain.Converters
 {
   public class PermissionConverter
   {
-
+    /// <summary>
+    /// Convert Permission to PermissionDTO
+    /// </summary>
+    /// <param name="permission">Permission</param>
+    /// <returns>PermissionResultDTO</returns>
     public static PermissionResultDTO PermissionResult(Permission permission)
     {
       return new PermissionResultDTO
@@ -16,6 +20,11 @@ namespace CoreLogin_Domain.Converters
       };   
     }
 
+    /// <summary>
+    /// Convert PermissionRequestDTO to Permission
+    /// </summary>
+    /// <param name="permissionRequest">PermissionRequestDTO</param>
+    /// <returns>Permission</returns>
     public static Permission PermissionRequest(PermissionRequestDTO permissionRequest)
     {
       return new Permission

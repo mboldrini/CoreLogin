@@ -5,10 +5,13 @@ namespace CoreLogin_Domain.Converters
 {
   public class GroupConverter
   {
-
+    /// <summary>
+    /// Convert Group to GroupResultDTO
+    /// </summary>
+    /// <param name="group">Group</param>
+    /// <returns>GroupResultDTO</returns>
     public static GroupResultDTO GroupResult(Group group)
     {
-
       return new GroupResultDTO
       {
         Id = group.Id,
@@ -19,6 +22,11 @@ namespace CoreLogin_Domain.Converters
       };
     }
 
+    /// <summary>
+    /// Convert GroupRequestDTO to Group
+    /// </summary>
+    /// <param name="groupRequest">GroupRequestDTO</param>
+    /// <returns>Group</returns>
     public static Group GroupRequest(GroupRequestDTO groupRequest)
     {
       return new Group

@@ -1,7 +1,6 @@
 ﻿using CoreLogin_Domain.Converters.DTO;
 using CoreLogin_Domain.Entities;
 using CoreLogin_Domain.Repositories;
-using CoreLogin_Domain.Requests;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoreLogin_Application.Services
