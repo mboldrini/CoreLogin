@@ -22,8 +22,12 @@ namespace CoreLogin_Presentation.Controllers
     public async Task<ActionResult<ModuleResultDTO>> AddModuleAsync([FromBody] ModuleRequestDTO module)
     {
       var moduleFound = await _moduleRepository.AddModuleAsync(module);
+      if(moduleFound == null)
+      {
+        return BadRequest("Error on create a new module");
+      }
 
-      return moduleFound;
+      return new OkObjectResult(moduleFound);
 
     }
 
@@ -33,8 +37,12 @@ namespace CoreLogin_Presentation.Controllers
     public async Task<ActionResult<ModuleResultDTO>> GetModuleByNameAsync([FromRoute] string name)
     {
       var module = await _moduleRepository.GetModuleByNameAsync(name);
-     
-      return module;
+      if (module == null)
+      {
+        return NotFound("Module not found");
+      }
+
+      return new OkObjectResult(module);
     }
 
     [HttpGet]
@@ -43,8 +51,12 @@ namespace CoreLogin_Presentation.Controllers
     public async Task<ActionResult<ModuleResultDTO>> GetModuleByIdAsync([FromRoute] int id)
     {
       var module = await _moduleRepository.GetModuleByIdAsync(id);
-   
-      return module;
+      if (module == null)
+      {
+        return NotFound("Module not found");
+      }
+
+      return new OkObjectResult(module);
     }
 
     [HttpGet]
@@ -59,14 +71,14 @@ namespace CoreLogin_Presentation.Controllers
     [HttpPut]
     [Route("update/{id:int}")]
     [AllowAnonymous]
-    public async Task<IActionResult> UpdateModuleAsync([FromRoute] int id, [FromBody] ModuleRequestDTO module)
+    public async Task<ActionResult<ModuleResultDTO>> UpdateModuleAsync([FromRoute] int id, [FromBody] ModuleRequestDTO module)
     {
       var updatedModule = await _moduleRepository.UpdateModuleAsync(id, module);
       if (updatedModule == null)
       {
-        return NotFound("Module not found");
+        return new NotFoundObjectResult("Module not found");
       }
-      return Ok(updatedModule);
+      return new OkObjectResult(updatedModule);
     }
 
     [HttpPut]
@@ -75,8 +87,12 @@ namespace CoreLogin_Presentation.Controllers
     public async Task<ActionResult<ModuleResultDTO>> EnableOrDisableModuleAsync([FromRoute] int id)
     {
       var module = await _moduleRepository.EnableOrDisableModuleAsync(id);
-    
-      return module;
+      if (module == null)
+      {
+        return new NotFoundObjectResult("Module not found");
+      }
+
+      return new OkObjectResult(module);
     }
 
   }

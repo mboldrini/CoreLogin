@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "E:\\Projetos\\CoreLogin\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6EBD1F98-C35F-4CAA-B6F3-78E524FF8DC8}|CoreLogin_Domain\\CoreLogin_Domain.csproj|e:\\projetos\\corelogin\\corelogin_domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EBD1F98-C35F-4CAA-B6F3-78E524FF8DC8}|CoreLogin_Domain\\CoreLogin_Domain.csproj|solutionrelative:corelogin_domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{81D64224-2BDC-47C5-A44B-B93D5F8AAE94}|CoreLogin_Infrastructure\\CoreLogin_Infrastructure.csproj|e:\\projetos\\corelogin\\corelogin_infrastructure\\repository\\modulerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81D64224-2BDC-47C5-A44B-B93D5F8AAE94}|CoreLogin_Infrastructure\\CoreLogin_Infrastructure.csproj|solutionrelative:corelogin_infrastructure\\repository\\modulerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{81D64224-2BDC-47C5-A44B-B93D5F8AAE94}|CoreLogin_Infrastructure\\CoreLogin_Infrastructure.csproj|e:\\projetos\\corelogin\\corelogin_infrastructure\\repository\\permissionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{81D64224-2BDC-47C5-A44B-B93D5F8AAE94}|CoreLogin_Infrastructure\\CoreLogin_Infrastructure.csproj|solutionrelative:corelogin_infrastructure\\repository\\permissionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6EBD1F98-C35F-4CAA-B6F3-78E524FF8DC8}|CoreLogin_Domain\\CoreLogin_Domain.csproj|e:\\projetos\\corelogin\\corelogin_domain\\repositories\\imodulerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EBD1F98-C35F-4CAA-B6F3-78E524FF8DC8}|CoreLogin_Domain\\CoreLogin_Domain.csproj|solutionrelative:corelogin_domain\\repositories\\imodulerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6EBD1F98-C35F-4CAA-B6F3-78E524FF8DC8}|CoreLogin_Domain\\CoreLogin_Domain.csproj|e:\\projetos\\corelogin\\corelogin_domain\\repositories\\ipermissionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EBD1F98-C35F-4CAA-B6F3-78E524FF8DC8}|CoreLogin_Domain\\CoreLogin_Domain.csproj|solutionrelative:corelogin_domain\\repositories\\ipermissionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B1525FC7-A7D1-4D5E-A3E4-C54F963B3346}|CoreLogin_Presentation\\CoreLogin_Presentation.csproj|e:\\projetos\\corelogin\\corelogin_presentation\\controllers\\permissioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B1525FC7-A7D1-4D5E-A3E4-C54F963B3346}|CoreLogin_Presentation\\CoreLogin_Presentation.csproj|solutionrelative:corelogin_presentation\\controllers\\permissioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B1525FC7-A7D1-4D5E-A3E4-C54F963B3346}|CoreLogin_Presentation\\CoreLogin_Presentation.csproj|e:\\projetos\\corelogin\\corelogin_presentation\\controllers\\modulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B1525FC7-A7D1-4D5E-A3E4-C54F963B3346}|CoreLogin_Presentation\\CoreLogin_Presentation.csproj|solutionrelative:corelogin_presentation\\controllers\\modulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 220,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "User.cs",
-              "DocumentMoniker": "E:\\Projetos\\CoreLogin\\CoreLogin_Domain\\Entities\\User.cs",
-              "RelativeDocumentMoniker": "CoreLogin_Domain\\Entities\\User.cs",
-              "ToolTip": "E:\\Projetos\\CoreLogin\\CoreLogin_Domain\\Entities\\User.cs",
-              "RelativeToolTip": "CoreLogin_Domain\\Entities\\User.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAASAAAA",
+              "DocumentIndex": 1,
+              "Title": "IModuleRepository.cs",
+              "DocumentMoniker": "E:\\Projetos\\CoreLogin\\CoreLogin_Domain\\Repositories\\IModuleRepository.cs",
+              "RelativeDocumentMoniker": "CoreLogin_Domain\\Repositories\\IModuleRepository.cs",
+              "ToolTip": "E:\\Projetos\\CoreLogin\\CoreLogin_Domain\\Repositories\\IModuleRepository.cs",
+              "RelativeToolTip": "CoreLogin_Domain\\Repositories\\IModuleRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAYAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-30T21:38:15.672Z",
+              "WhenOpened": "2024-05-01T12:41:43.841Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ModuleRepository.cs",
+              "DocumentMoniker": "E:\\Projetos\\CoreLogin\\CoreLogin_Infrastructure\\Repository\\ModuleRepository.cs",
+              "RelativeDocumentMoniker": "CoreLogin_Infrastructure\\Repository\\ModuleRepository.cs",
+              "ToolTip": "E:\\Projetos\\CoreLogin\\CoreLogin_Infrastructure\\Repository\\ModuleRepository.cs*",
+              "RelativeToolTip": "CoreLogin_Infrastructure\\Repository\\ModuleRepository.cs*",
+              "ViewState": "AQIAACUAAAAAAAAAAAAcwEAAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-01T12:33:49.921Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "IPermissionRepository.cs",
-              "DocumentMoniker": "E:\\Projetos\\CoreLogin\\CoreLogin_Domain\\Repositories\\IPermissionRepository.cs",
-              "RelativeDocumentMoniker": "CoreLogin_Domain\\Repositories\\IPermissionRepository.cs",
-              "ToolTip": "E:\\Projetos\\CoreLogin\\CoreLogin_Domain\\Repositories\\IPermissionRepository.cs",
-              "RelativeToolTip": "CoreLogin_Domain\\Repositories\\IPermissionRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Title": "ModuleController.cs",
+              "DocumentMoniker": "E:\\Projetos\\CoreLogin\\CoreLogin_Presentation\\Controllers\\ModuleController.cs",
+              "RelativeDocumentMoniker": "CoreLogin_Presentation\\Controllers\\ModuleController.cs",
+              "ToolTip": "E:\\Projetos\\CoreLogin\\CoreLogin_Presentation\\Controllers\\ModuleController.cs",
+              "RelativeToolTip": "CoreLogin_Presentation\\Controllers\\ModuleController.cs",
+              "ViewState": "AQIAADIAAAAAAAAAAAAwwF4AAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-30T21:34:56.627Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PermissionRepository.cs",
-              "DocumentMoniker": "E:\\Projetos\\CoreLogin\\CoreLogin_Infrastructure\\Repository\\PermissionRepository.cs",
-              "RelativeDocumentMoniker": "CoreLogin_Infrastructure\\Repository\\PermissionRepository.cs",
-              "ToolTip": "E:\\Projetos\\CoreLogin\\CoreLogin_Infrastructure\\Repository\\PermissionRepository.cs",
-              "RelativeToolTip": "CoreLogin_Infrastructure\\Repository\\PermissionRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAqwCAAAAA9AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-30T21:30:39.877Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "PermissionController.cs",
-              "DocumentMoniker": "E:\\Projetos\\CoreLogin\\CoreLogin_Presentation\\Controllers\\PermissionController.cs",
-              "RelativeDocumentMoniker": "CoreLogin_Presentation\\Controllers\\PermissionController.cs",
-              "ToolTip": "E:\\Projetos\\CoreLogin\\CoreLogin_Presentation\\Controllers\\PermissionController.cs",
-              "RelativeToolTip": "CoreLogin_Presentation\\Controllers\\PermissionController.cs",
-              "ViewState": "AQIAABoAAAAAAAAAAAAgwEMAAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-30T21:30:10.832Z",
+              "WhenOpened": "2024-05-01T12:33:44.07Z",
               "EditorCaption": ""
             }
           ]
