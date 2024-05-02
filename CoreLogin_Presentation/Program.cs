@@ -1,11 +1,8 @@
-using CoreLogin_Application.Services;
 using CoreLogin_Domain.Repositories;
 using CoreLogin_Infrastructure.Data;
 using CoreLogin_Infrastructure.Repository;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,8 +11,7 @@ string connectionString = builder.Configuration.GetConnectionString("connectionS
 // Configuração do banco de dados
 builder.Services.AddDbContext<DataContext>(options =>
 {
-  //options.UseInMemoryDatabase("Database");
-  options.UseSqlServer(connectionString);
+  options.UseSqlServer(connectionString, b => b.MigrationsAssembly("CoreLogin_Infrastructure"));
 });
 builder.Services.AddScoped<DataContext, DataContext>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();

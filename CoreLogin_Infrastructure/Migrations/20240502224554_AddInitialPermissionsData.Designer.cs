@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CoreLogin_Infrastructure.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240415190651_Initial")]
-    partial class Initial
+    [Migration("20240502224554_AddInitialPermissionsData")]
+    partial class AddInitialPermissionsData
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,6 +36,12 @@ namespace CoreLogin_Infrastructure.Migrations
                     b.Property<bool>("Active")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("CanDelete")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("Created_At")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
@@ -43,6 +49,9 @@ namespace CoreLogin_Infrastructure.Migrations
                         .IsRequired()
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
+
+                    b.Property<DateTime?>("Updated_At")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -82,9 +91,6 @@ namespace CoreLogin_Infrastructure.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("Operation")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Type")
                         .HasColumnType("int");
 
                     b.HasKey("Id");

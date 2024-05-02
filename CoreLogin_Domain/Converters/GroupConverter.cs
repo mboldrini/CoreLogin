@@ -18,6 +18,9 @@ namespace CoreLogin_Domain.Converters
         Name = group.Name,
         Description = group.Description,
         Active = group.Active,
+        CanDelete = group.CanDelete,
+        Created_At = group.Created_At ?? DateTime.Now,
+        Updated_At = group.Updated_At ?? DateTime.Now,
         Permissions = group.GroupPermissions.Select(gp => PermissionConverter.PermissionResult(gp.Permission))
       };
     }

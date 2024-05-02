@@ -18,6 +18,15 @@ namespace CoreLogin_Domain.Converters.DTO
     [DefaultValue("true")]
     public bool Active { get; set; }
 
+    [DefaultValue("true")]
+    public bool CanDelete { get; set; }
+
+    [ReadOnly(true)]
+    public DateTime Created_At { get; set; }
+
+    [ReadOnly(true)]
+    public DateTime Updated_At { get; set; }
+
     public IEnumerable<PermissionResultDTO> Permissions { get; set; }
   }
 

@@ -1,11 +1,9 @@
 ﻿using CoreLogin.Domain.Entities.Enum;
 using CoreLogin_Domain.Converters;
 using CoreLogin_Domain.Converters.DTO;
-using CoreLogin_Domain.Entities;
 using CoreLogin_Domain.Entities.Relations;
 using CoreLogin_Domain.Repositories;
 using CoreLogin_Infrastructure.Data;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace CoreLogin_Infrastructure.Repository
@@ -157,6 +155,7 @@ namespace CoreLogin_Infrastructure.Repository
       groupExist.Name = group.Name;
       groupExist.Description = group.Description;
       groupExist.Active = group.Active;
+      groupExist.Updated_At = DateTime.Now;
 
       foreach (var permission in group.Permissions)
       {
@@ -197,8 +196,9 @@ namespace CoreLogin_Infrastructure.Repository
         return false;
       }
 
-      // set group active to false and save
       groupExist.Active = false;
+      groupExist.Updated_At = DateTime.Now;
+
       await _dbContext.SaveChangesAsync();  
 
       return true;

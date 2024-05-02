@@ -2,6 +2,7 @@
 using Swashbuckle.AspNetCore.Annotations;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace CoreLogin_Domain.Entities
 {
@@ -22,6 +23,14 @@ namespace CoreLogin_Domain.Entities
 
     [DefaultValue(true)]
     public bool Active { get; set; } = true;
+
+    [DefaultValue(true)]
+    [JsonIgnore]
+    public bool CanDelete { get; set; } = true;
+
+    public DateTime? Created_At { get; set; } = DateTime.Now;
+
+    public DateTime? Updated_At { get; set; } = DateTime.Now;
 
     public ICollection<UserGroup> UserGroups { get; set; }
 
