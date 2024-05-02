@@ -1,10 +1,7 @@
 ﻿using CoreLogin_Domain.Converters;
 using CoreLogin_Domain.Converters.DTO;
-using CoreLogin_Domain.Entities;
 using CoreLogin_Domain.Repositories;
 using CoreLogin_Infrastructure.Data;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace CoreLogin_Infrastructure.Repository
@@ -35,7 +32,6 @@ namespace CoreLogin_Infrastructure.Repository
 
       await _dbContext.Modules.AddAsync(moduleRequestConverted);
       await _dbContext.SaveChangesAsync();
-
 
       return ModuleConverter.ModuleResult(moduleRequestConverted);
     }

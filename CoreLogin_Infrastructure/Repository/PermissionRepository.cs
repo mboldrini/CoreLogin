@@ -1,10 +1,8 @@
-﻿using CoreLogin.Domain.Entities.Enum;
-using CoreLogin_Domain.Converters;
+﻿using CoreLogin_Domain.Converters;
 using CoreLogin_Domain.Converters.DTO;
 using CoreLogin_Domain.Entities;
 using CoreLogin_Domain.Repositories;
 using CoreLogin_Infrastructure.Data;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace CoreLogin_Infrastructure.Repository
@@ -28,7 +26,7 @@ namespace CoreLogin_Infrastructure.Repository
     {
       var permissionConverted = PermissionConverter.PermissionRequest(permission);
 
-      var permissionExists = await _dbContext.Permissions.FirstOrDefaultAsync(p => p.Operation == permissionConverted.Operation && p.Type == permissionConverted.Type);
+      var permissionExists = await _dbContext.Permissions.FirstOrDefaultAsync(p => p.Operation == permissionConverted.Operation);
 
       // If the permission exists, only return the permission
       if (permissionExists != null)
@@ -62,7 +60,7 @@ namespace CoreLogin_Infrastructure.Repository
     {
       var permissionConverted = PermissionConverter.PermissionRequest(permission);
 
-      var permissionExists = await _dbContext.Permissions.FirstOrDefaultAsync(p => p.Operation == permissionConverted.Operation && p.Type == permissionConverted.Type);
+      var permissionExists = await _dbContext.Permissions.FirstOrDefaultAsync(p => p.Operation == permissionConverted.Operation);
       if (permissionExists != null)
       {
         return null;

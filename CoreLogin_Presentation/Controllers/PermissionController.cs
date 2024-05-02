@@ -28,12 +28,6 @@ namespace CoreLogin_Presentation.Controllers
     [AllowAnonymous]
     public async Task<ActionResult<PermissionResultDTO>> AddPermissionAsync([FromBody] PermissionRequestDTO permission)
     {
-      // validate if the permission.type is valid
-      if (!Enum.IsDefined(typeof(EPermissionType), permission.Type))
-      {
-        return new BadRequestObjectResult("Invalid Permission Type");
-      }
-
       var newPermission = await _permissionRepository.CreatePermissionAsync(permission);
 
       if(newPermission == null)
@@ -69,7 +63,7 @@ namespace CoreLogin_Presentation.Controllers
     public async Task<ActionResult> DeletePermissionAsync([FromBody] PermissionRequestDTO permission)
     {
 
-      if (!Enum.IsDefined(typeof(EPermissionOperation), permission.Operation) || !Enum.IsDefined(typeof(EPermissionType), permission.Type))
+      if (!Enum.IsDefined(typeof(EPermissionOperation), permission.Operation) )
       {
         return new BadRequestObjectResult("Invalid 'Permission Operation' or 'Type'");
       }

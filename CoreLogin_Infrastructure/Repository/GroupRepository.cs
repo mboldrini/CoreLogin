@@ -59,7 +59,6 @@ namespace CoreLogin_Infrastructure.Repository
 
           var permissionDTO = new PermissionResultDTO
           {
-            Type = existingPermission.Type.ToString(),
             Operation = existingPermission.Operation.ToString()
           };
 
@@ -162,9 +161,8 @@ namespace CoreLogin_Infrastructure.Repository
       foreach (var permission in group.Permissions)
       {
         var permissionOperation = (EPermissionOperation)Enum.Parse(typeof(EPermissionOperation), permission.Operation);
-        var permissionType = (EPermissionType)Enum.Parse(typeof(EPermissionType), permission.Type);
 
-        var existingPermission = await _dbContext.Permissions.FirstOrDefaultAsync(p => p.Operation == permissionOperation && p.Type == permissionType);
+        var existingPermission = await _dbContext.Permissions.FirstOrDefaultAsync(p => p.Operation == permissionOperation);
 
         if (existingPermission != null)
         {

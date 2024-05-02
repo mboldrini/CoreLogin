@@ -15,7 +15,6 @@ namespace CoreLogin_Domain.Converters
     {
       return new PermissionResultDTO
       {
-        Type = permission.Type.ToString(),
         Operation = permission.Operation.ToString()
       };   
     }
@@ -29,7 +28,6 @@ namespace CoreLogin_Domain.Converters
     {
       return new Permission
       {
-        Type = (EPermissionType)System.Enum.Parse(typeof(EPermissionType), permissionRequest.Type),
         Operation = (EPermissionOperation)System.Enum.Parse(typeof(EPermissionOperation), permissionRequest.Operation)
       };
     }

@@ -2,7 +2,6 @@
 using CoreLogin_Domain.Repositories;
 using CoreLogin_Infrastructure.Data;
 using CoreLogin_Infrastructure.Helpers;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 namespace CoreLogin_Infrastructure.Repository
 {

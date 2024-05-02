@@ -13,13 +13,7 @@ namespace CoreLogin_Domain.Entities
 
     [Required]
     [DefaultValue(0)]
-    public EPermissionType Type { get; set; }
-
-    [Required]
-    [DefaultValue(0)]
     public EPermissionOperation Operation { get; set; }
-
-
   }
 }
 
