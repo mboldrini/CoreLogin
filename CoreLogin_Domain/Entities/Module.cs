@@ -24,6 +24,12 @@ namespace CoreLogin_Domain.Entities
     [DefaultValue(true)]
     public bool Active { get; set; } = true;
 
+    [ReadOnly(true)]
+    public DateTime Created_at { get; set; } = DateTime.Now;
+
+    [ReadOnly(true)]
+    public DateTime Updated_at { get; set; } = DateTime.Now;
+
     [JsonIgnore]
     public ICollection<GroupModule> GroupModules { get; set; }
   }

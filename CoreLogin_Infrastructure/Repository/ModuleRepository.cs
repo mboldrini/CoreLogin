@@ -1,5 +1,6 @@
 ﻿using CoreLogin_Domain.Converters;
 using CoreLogin_Domain.Converters.DTO;
+using CoreLogin_Domain.Entities.Relations;
 using CoreLogin_Domain.Repositories;
 using CoreLogin_Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
@@ -31,6 +32,26 @@ namespace CoreLogin_Infrastructure.Repository
       var moduleRequestConverted = ModuleConverter.ModuleRequest(module);
 
       await _dbContext.Modules.AddAsync(moduleRequestConverted);
+
+      // caso tenha grupos, encontra os grupos e adiciona na tabela de relacionamento
+      if (module.Groups != null)
+      {
+        foreach (var group in module.Groups)
+        {
+          var groupExist = await _dbContext.Groups.FirstOrDefaultAsync(g => g.Name == group);
+          if (groupExist != null)
+          {
+            var groupModule = new GroupModule
+            {
+              Group = groupExist,
+              Module = moduleRequestConverted
+            };
+
+            await _dbContext.GroupModules.AddAsync(groupModule);
+          }
+        }
+      }
+
       await _dbContext.SaveChangesAsync();
 
       return ModuleConverter.ModuleResult(moduleRequestConverted);
@@ -92,7 +113,7 @@ namespace CoreLogin_Infrastructure.Repository
     /// <returns>ModuleResultDTO</returns>
     public async Task<ModuleResultDTO> UpdateModuleAsync(int id, ModuleRequestDTO module)
     {
-      var moduleExist = await _dbContext.Modules.FirstOrDefaultAsync(m => m.Id == id);
+      var moduleExist = await _dbContext.Modules.Include(m => m.GroupModules).ThenInclude(gm => gm.Group).FirstOrDefaultAsync(m => m.Id == id);
       if (module == null)
       {
         return null;
@@ -101,8 +122,29 @@ namespace CoreLogin_Infrastructure.Repository
       moduleExist.Name = module.Name;
       moduleExist.Active = module.Active;
       moduleExist.Description = module.Description;
+      moduleExist.Updated_at = DateTime.Now;
 
-      _dbContext.Modules.Update(moduleExist);
+      if (module.Groups != null)
+      {
+        var groupModules = await _dbContext.GroupModules.Where(gm => gm.ModuleId == moduleExist.Id).ToListAsync();
+        _dbContext.GroupModules.RemoveRange(groupModules);
+
+        foreach (var group in module.Groups)
+        {
+          var groupExist = await _dbContext.Groups.FirstOrDefaultAsync(g => g.Name == group);
+          if (groupExist != null)
+          {
+            var groupModule = new GroupModule
+            {
+              Group = groupExist,
+              Module = moduleExist
+            };
+
+            await _dbContext.GroupModules.AddAsync(groupModule);
+          }
+        }
+      }
+
       await _dbContext.SaveChangesAsync();
 
       return ModuleConverter.ModuleResult(moduleExist);
@@ -124,6 +166,7 @@ namespace CoreLogin_Infrastructure.Repository
       }
 
       moduleExist.Active = !moduleExist.Active;
+      moduleExist.Updated_at = DateTime.Now;
 
       _dbContext.Modules.Update(moduleExist);
 

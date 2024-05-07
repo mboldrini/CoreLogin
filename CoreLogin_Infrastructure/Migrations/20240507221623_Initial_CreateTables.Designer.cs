@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CoreLogin_Infrastructure.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240502224220_NewMigration")]
-    partial class NewMigration
+    [Migration("20240507221623_Initial_CreateTables")]
+    partial class Initial_CreateTables
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -69,6 +69,9 @@ namespace CoreLogin_Infrastructure.Migrations
                     b.Property<bool>("Active")
                         .HasColumnType("bit");
 
+                    b.Property<DateTime>("Created_at")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
@@ -76,6 +79,9 @@ namespace CoreLogin_Infrastructure.Migrations
                         .IsRequired()
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
+
+                    b.Property<DateTime>("Updated_at")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 

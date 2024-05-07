@@ -23,6 +23,10 @@ namespace CoreLogin_Domain.Converters.DTO
 
     public IEnumerable<string>? Groups { get; set; }
 
+    public DateTime Created_at { get; set; } = DateTime.Now;
+
+    public DateTime Updated_at { get; set; } = DateTime.Now;
+
   }
 
   public sealed class ModuleRequestDTO
@@ -39,6 +43,10 @@ namespace CoreLogin_Domain.Converters.DTO
     [DefaultValue(true)]
     [ReadOnly(true)]
     public bool Active { get; set; } = true;
+
+    [DefaultValue(new string[] { "Administrators" })]
+    public IEnumerable<string>? Groups { get; set; }
+
   }
 
 }

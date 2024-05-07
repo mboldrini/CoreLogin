@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CoreLogin_Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class NewMigration : Migration
+    public partial class Initial_CreateTables : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -37,7 +37,9 @@ namespace CoreLogin_Infrastructure.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Active = table.Column<bool>(type: "bit", nullable: false)
+                    Active = table.Column<bool>(type: "bit", nullable: false),
+                    Created_at = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Updated_at = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {

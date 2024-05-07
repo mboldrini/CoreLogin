@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CoreLogin_Infrastructure.Migrations
 {
   /// <inheritdoc />
-  public partial class AddInitialPermissionsData : Migration
+  public partial class Initial_CreateDefaultValues : Migration
   {
     /// <inheritdoc />
     protected override void Up(MigrationBuilder migrationBuilder)
@@ -45,7 +45,7 @@ namespace CoreLogin_Infrastructure.Migrations
           }
       );
 
-      // Add defailt user
+      // Add default user
       migrationBuilder.InsertData(
           table: "Users",
           columns: new[] { "Id", "Uid", "UserName", "Email", "Password", "CreatedAt" },
@@ -62,8 +62,8 @@ namespace CoreLogin_Infrastructure.Migrations
       // Default module
       migrationBuilder.InsertData(
           table: "Modules",
-          columns: new[] { "Id", "Name", "Description", "Active" },
-          values: new object[] { 1, "Configuration", "Default module for general configurations", true }
+          columns: new[] { "Id", "Name", "Description", "Active", "Created_at", "Updated_at" },
+          values: new object[] { 1, "Configuration", "Default module for general configurations", true, DateTime.Now, DateTime.Now }
       );
 
       // Default group module
