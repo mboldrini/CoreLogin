@@ -95,7 +95,7 @@ namespace CoreLogin_Presentation.Controllers
       var updatedGroup = await _groupRepository.UpdateGroupAsync(id, group);
       if (updatedGroup == null)
       {
-        return NotFound();
+        return new OkObjectResult("Group not found or cannot be deleted");
       }
 
       return new OkObjectResult(updatedGroup);
@@ -113,7 +113,7 @@ namespace CoreLogin_Presentation.Controllers
       var deletedGroup = await _groupRepository.DeleteGroup(id);
       if (deletedGroup == false)
       {
-        return new NotFoundObjectResult("Group not found");
+        return new NotFoundObjectResult("Group not found or cannot be deleted");
       }
 
       return Ok();

@@ -143,7 +143,7 @@ namespace CoreLogin_Infrastructure.Repository
     public async Task<GroupResultDTO> UpdateGroupAsync(int id, GroupRequestDTO group)
     {
       var groupExist = await _dbContext.Groups.FirstOrDefaultAsync(g => g.Id == id);
-      if (groupExist == null)
+      if (groupExist == null || groupExist.CanDelete == false)
       {
         return null;
       }
@@ -191,7 +191,7 @@ namespace CoreLogin_Infrastructure.Repository
     public async Task<bool> DeleteGroup(int id)
     {
       var groupExist = await _dbContext.Groups.FirstOrDefaultAsync(g => g.Id == id);
-      if (groupExist == null)
+      if (groupExist == null || groupExist.CanDelete == false)
       {
         return false;
       }
