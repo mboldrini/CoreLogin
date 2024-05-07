@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "E:\\Projetos\\CoreLogin\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Projetos\\CoreLogin\\CoreLogin_Infrastructure\\Migrations\\20240502224220_NewMigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CoreLogin_Infrastructure\\Migrations\\20240502224220_NewMigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B1525FC7-A7D1-4D5E-A3E4-C54F963B3346}|CoreLogin_Presentation\\CoreLogin_Presentation.csproj|e:\\projetos\\corelogin\\corelogin_presentation\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B1525FC7-A7D1-4D5E-A3E4-C54F963B3346}|CoreLogin_Presentation\\CoreLogin_Presentation.csproj|solutionrelative:corelogin_presentation\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81D64224-2BDC-47C5-A44B-B93D5F8AAE94}|CoreLogin_Infrastructure\\CoreLogin_Infrastructure.csproj|e:\\projetos\\corelogin\\corelogin_infrastructure\\contexts\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{81D64224-2BDC-47C5-A44B-B93D5F8AAE94}|CoreLogin_Infrastructure\\CoreLogin_Infrastructure.csproj|solutionrelative:corelogin_infrastructure\\contexts\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{81D64224-2BDC-47C5-A44B-B93D5F8AAE94}|CoreLogin_Infrastructure\\CoreLogin_Infrastructure.csproj|e:\\projetos\\corelogin\\corelogin_infrastructure\\migrations\\20240502224554_addinitialpermissionsdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81D64224-2BDC-47C5-A44B-B93D5F8AAE94}|CoreLogin_Infrastructure\\CoreLogin_Infrastructure.csproj|solutionrelative:corelogin_infrastructure\\migrations\\20240502224554_addinitialpermissionsdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,40 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "20240502224220_NewMigration.cs",
-              "DocumentMoniker": "E:\\Projetos\\CoreLogin\\CoreLogin_Infrastructure\\Migrations\\20240502224220_NewMigration.cs",
-              "RelativeDocumentMoniker": "CoreLogin_Infrastructure\\Migrations\\20240502224220_NewMigration.cs",
-              "ToolTip": "E:\\Projetos\\CoreLogin\\CoreLogin_Infrastructure\\Migrations\\20240502224220_NewMigration.cs",
-              "RelativeToolTip": "CoreLogin_Infrastructure\\Migrations\\20240502224220_NewMigration.cs",
-              "ViewState": "AQIAADAAAAAAAAAAAAAjwDwAAAAaAAAA",
+              "Title": "20240502224554_AddInitialPermissionsData.cs",
+              "DocumentMoniker": "E:\\Projetos\\CoreLogin\\CoreLogin_Infrastructure\\Migrations\\20240502224554_AddInitialPermissionsData.cs",
+              "RelativeDocumentMoniker": "CoreLogin_Infrastructure\\Migrations\\20240502224554_AddInitialPermissionsData.cs",
+              "ToolTip": "E:\\Projetos\\CoreLogin\\CoreLogin_Infrastructure\\Migrations\\20240502224554_AddInitialPermissionsData.cs",
+              "RelativeToolTip": "CoreLogin_Infrastructure\\Migrations\\20240502224554_AddInitialPermissionsData.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAUwB8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-02T22:42:20.926Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\Projetos\\CoreLogin\\CoreLogin_Presentation\\Program.cs",
-              "RelativeDocumentMoniker": "CoreLogin_Presentation\\Program.cs",
-              "ToolTip": "E:\\Projetos\\CoreLogin\\CoreLogin_Presentation\\Program.cs",
-              "RelativeToolTip": "CoreLogin_Presentation\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAABZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-02T22:26:02.665Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DataContext.cs",
-              "DocumentMoniker": "E:\\Projetos\\CoreLogin\\CoreLogin_Infrastructure\\Contexts\\DataContext.cs",
-              "RelativeDocumentMoniker": "CoreLogin_Infrastructure\\Contexts\\DataContext.cs",
-              "ToolTip": "E:\\Projetos\\CoreLogin\\CoreLogin_Infrastructure\\Contexts\\DataContext.cs",
-              "RelativeToolTip": "CoreLogin_Infrastructure\\Contexts\\DataContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-02T22:24:08.756Z",
+              "WhenOpened": "2024-05-02T22:45:54.677Z",
               "EditorCaption": ""
             }
           ]
