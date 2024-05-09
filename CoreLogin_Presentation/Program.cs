@@ -15,7 +15,6 @@ builder.Services.AddDbContext<DataContext>(options =>
 });
 builder.Services.AddScoped<DataContext, DataContext>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IPermissionRepository, PermissionRepository>();
 builder.Services.AddScoped<IModuleRepository, ModuleRepository>();
 builder.Services.AddScoped<IGroupRepository, GroupRepository>();
 
